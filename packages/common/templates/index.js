@@ -44,7 +44,7 @@ export const reactTs = {
 };
 
 export const dojo = {
-  name: 'dojo',
+  name: '@dojo/cli',
   niceName: 'Dojo 2',
   url: 'https://github.com/nicknisi/dojo2-app',
   Icon: DojoIcon,

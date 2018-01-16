@@ -196,7 +196,7 @@ const TEMPLATE_SUPPORT = {
     loaders: [js, ts, html, cssGlobal, image],
     css: ['Global'],
   },
-  'dojo': {
+  '@dojo/cli': {
     loaders: [ts, html, cssGlobal, image ],
     css: [ 'Global', 'Scoped', 'Modules' ]
   },

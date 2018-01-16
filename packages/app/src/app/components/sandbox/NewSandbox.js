@@ -11,12 +11,14 @@ import {
   newReactTypeScriptSandboxUrl,
   newPreactSandboxUrl,
   newVueSandboxUrl,
+  newDojoSandboxUrl,
   newSvelteSandboxUrl,
   importFromGitHubUrl,
   uploadFromCliUrl,
 } from 'common/utils/url-generator';
 
 import ReactIcon from 'common/components/logos/React';
+import DojoIcon from 'common/components/logos/Dojo';
 import PreactIcon from 'common/components/logos/Preact';
 import VueIcon from 'common/components/logos/Vue';
 import SvelteIcon from 'common/components/logos/Svelte';
@@ -102,6 +104,14 @@ const NewSandbox = ({
         height={50}
         text="React TypeScript"
         href={newReactTypeScriptSandboxUrl()}
+        onClick={modalActions ? modalActions.closeModal : null}
+      />
+      <Logo
+        Icon={DojoIcon}
+        width={50}
+        height={50}
+        text="Dojo 2"
+        href={newDojoSandboxUrl()}
         onClick={modalActions ? modalActions.closeModal : null}
       />
       <Logo
