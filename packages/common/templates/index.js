@@ -2,6 +2,7 @@ import ReactIcon from 'common/components/logos/React';
 import PreactIcon from 'common/components/logos/Preact';
 import VueIcon from 'common/components/logos/Vue';
 import SvelteIcon from 'common/components/logos/Svelte';
+import DojoIcon from 'common/components/logos/Dojo';
 
 import { decorateSelector } from '../theme';
 
@@ -40,6 +41,15 @@ export const reactTs = {
     typescript: true,
     entry: 'index.tsx',
   },
+};
+
+export const dojo = {
+  name: 'dojo',
+  niceName: 'Dojo 2',
+  url: 'https://github.com/nicknisi/dojo2-app',
+  Icon: DojoIcon,
+  shortid: 'dojo',
+  color: decorateSelector(() => '#DA1920')
 };
 
 export const vue = {
@@ -121,6 +131,7 @@ export default function getDefinition(
     | 'preact-cli'
     | 'svelte'
     | 'create-react-app-typescript'
+    | 'dojo'
 ) {
   if (!theme) {
     return react;
@@ -137,6 +148,8 @@ export default function getDefinition(
       return reactTs;
     case svelte.name:
       return svelte;
+    case dojo.name:
+      return dojo;
     default:
       return react;
   }

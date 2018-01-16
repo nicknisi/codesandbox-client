@@ -196,6 +196,10 @@ const TEMPLATE_SUPPORT = {
     loaders: [js, ts, html, cssGlobal, image],
     css: ['Global'],
   },
+  'dojo': {
+    loaders: [ts, html, cssGlobal, image ],
+    css: [ 'Global', 'Scoped', 'Modules' ]
+  },
   'vue-cli': {
     loaders: [js, ts, html, vue, scss, sass, less, stylus, cssGlobal, image],
     css: ['Global', 'Scoped', 'Modules'],
