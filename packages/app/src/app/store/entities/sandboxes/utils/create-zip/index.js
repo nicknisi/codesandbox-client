@@ -3,7 +3,7 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
 import type { Sandbox, Module, Directory } from 'common/types';
-import { react, reactTs, vue, preact, svelte } from 'common/templates/index';
+import { react, reactTs, vue, preact, svelte, dojo } from 'common/templates/index';
 import slugify from 'common/utils/slugify';
 import resolveModule from 'common/sandbox/resolve-module';
 
@@ -148,6 +148,10 @@ export async function createZip(
     );
   } else if (sandbox.template === svelte.name) {
     promise = import(/* webpackChunkName: 'svelte-zip' */ './svelte').then(
+      generator => generator.default(zip, sandbox, modules, directories)
+    );
+  } else if (sandbox.template === dojo.name) {
+    promise = import(/* webpackChunkName: 'dojo-zip' */ './dojo').then(
       generator => generator.default(zip, sandbox, modules, directories)
     );
   }

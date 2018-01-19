@@ -25,6 +25,7 @@ export const protocolAndHost = () => `${location.protocol}//${host()}`;
 
 export const newSandboxUrl = () => `/s/new`;
 export const newReactTypeScriptSandboxUrl = () => `/s/react-ts`;
+export const newDojoSandboxUrl = () => `/s/github/nicknisi/dojo2-app`;
 export const newPreactSandboxUrl = () => `/s/preact`;
 export const newVueSandboxUrl = () => `/s/vue`;
 export const importFromGitHubUrl = () => `/s/github`;

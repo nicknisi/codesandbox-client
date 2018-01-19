@@ -28,6 +28,7 @@ export default class Background extends React.PureComponent {
   // Use solid colors for perf
   colors = {
     'create-react-app': '#1E2428',
+    '@dojo/cli': '#081F29',
     'vue-cli': '#1D2525',
     'preact-cli': '#202328',
     svelte: '#202022',

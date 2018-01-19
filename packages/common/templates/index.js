@@ -47,8 +47,9 @@ export const dojo = {
   name: '@dojo/cli',
   niceName: 'Dojo 2',
   url: 'https://github.com/nicknisi/dojo2-app',
+  // url: 'https://github.com/vuejs/vue-cli',
   Icon: DojoIcon,
-  shortid: 'dojo',
+  shortid: 'dojo2',
   color: decorateSelector(() => '#DA1920')
 };
 
@@ -131,7 +132,7 @@ export default function getDefinition(
     | 'preact-cli'
     | 'svelte'
     | 'create-react-app-typescript'
-    | 'dojo'
+    | '@dojo/cli'
 ) {
   if (!theme) {
     return react;
