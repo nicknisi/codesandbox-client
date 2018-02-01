@@ -46,11 +46,13 @@ export const reactTs = {
 export const dojo = {
   name: '@dojo/cli',
   niceName: 'Dojo 2',
-  url: 'https://github.com/nicknisi/dojo2-app',
-  // url: 'https://github.com/vuejs/vue-cli',
+  url: 'https://github.com/dojo/cli',
   Icon: DojoIcon,
   shortid: 'dojo2',
-  color: decorateSelector(() => '#DA1920')
+  color: decorateSelector(() => '#DA1920'),
+  sourceConfig: {
+    typescript: true
+  }
 };
 
 export const vue = {

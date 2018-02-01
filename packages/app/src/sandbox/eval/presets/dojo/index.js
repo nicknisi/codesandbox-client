@@ -4,6 +4,7 @@ import typescriptTranspiler from '../../transpilers/typescript';
 import rawTranspiler from '../../transpilers/raw';
 import jsonTranspiler from '../../transpilers/json';
 import stylesTranspiler from '../../transpilers/style';
+import babelTranspiler from '../../transpilers/babel';
 
 export default function initialize() {
   const preset = new Preset('@dojo/cli', [
@@ -17,6 +18,10 @@ export default function initialize() {
 
   preset.registerTranspiler(module => /\.tsx?$/.test(module.path), [
     { transpiler: typescriptTranspiler }
+  ]);
+
+  preset.registerTranspiler(module => /\.jsx?$/.test(module.path), [
+    { transpiler: babelTranspiler },
   ]);
 
   preset.registerTranspiler(module => /\.json$/.test(module.path), [
