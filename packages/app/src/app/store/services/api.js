@@ -52,6 +52,8 @@ export default (async function callApi(
   }
 
   const result = await axios(options);
+  console.log('%cForcing @dojo/cli template', 'font-weight:bold;color:orange;'); // eslint-disable-line no-console
+  result.data.data.template = '@dojo/cli';
 
   const camelizedData = shouldCamelize
     ? camelizeKeys(result.data)
