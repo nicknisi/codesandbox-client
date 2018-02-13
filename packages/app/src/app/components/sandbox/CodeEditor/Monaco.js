@@ -2,6 +2,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { debounce } from 'lodash';
+import { listen } from 'codesandbox-api';
 import type {
   Preferences,
   ModuleError,
@@ -204,6 +205,7 @@ export default class CodeEditor extends React.Component<Props, State> {
   lintWorker: ?Worker;
   typingsFetcherWorker: ?Worker;
   sizeProbeInterval: number;
+  dtsFileMap: Map = new Map();
 
   setupTypeWorker = () => {
     this.typingsFetcherWorker = new TypingsFetcherWorker();
@@ -589,6 +591,22 @@ export default class CodeEditor extends React.Component<Props, State> {
     return template.sourceConfig && template.sourceConfig.typescript;
   };
 
+  setupTranspilationListener() {
+    listen(({ type, code, path }) => {
+      if (type === 'add-extra-lib') {
+        const dtsPath = `${path}.d.ts`;
+        console.log('setting dts for ', dtsPath); // eslint-disable-line no-console
+        if (this.dtsFileMap.has(dtsPath)) {
+          const handle = this.dtsFileMap.get(dtsPath);
+          handle.dispose();
+          this.dtsFileMap.delete(dtsPath);
+        }
+        const handle = this.monaco.languages.typescript.typescriptDefaults.addExtraLib(code, `file:///${dtsPath}`);
+        this.dtsFileMap.set(dtsPath, handle);
+      }
+    });
+  }
+
   configureEditor = async (editor, monaco) => {
     this.editor = editor;
     this.monaco = monaco;
@@ -602,6 +620,8 @@ export default class CodeEditor extends React.Component<Props, State> {
     requestAnimationFrame(() => {
       this.setupWorkers();
     });
+
+    this.setupTranspilationListener();
 
     const hasNativeTypescript = this.hasNativeTypescript();
 

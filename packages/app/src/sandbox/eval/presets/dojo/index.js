@@ -4,10 +4,12 @@ import typescriptTranspiler from '../../transpilers/typescript';
 import rawTranspiler from '../../transpilers/raw';
 import jsonTranspiler from '../../transpilers/json';
 import stylesTranspiler from '../../transpilers/style';
+import cssModulesTranspiler from '../../transpilers/css';
 import babelTranspiler from '../../transpilers/babel';
 
 export default function initialize() {
   const preset = new Preset('@dojo/cli', [
+    'css',
     'web.ts',
     'ts',
     'json',
@@ -29,7 +31,7 @@ export default function initialize() {
   ]);
 
   preset.registerTranspiler(module => /\.m\.css$/.test(module.path), [
-    { transpiler: stylesTranspiler, options: { module: true } }
+    { transpiler: cssModulesTranspiler, options: { module: true } }
   ]);
 
   preset.registerTranspiler(module => /\.css$/.test(module.path), [
