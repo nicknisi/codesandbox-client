@@ -28,6 +28,7 @@ export default new DojoTemplate(
     isTypescript: true,
     extraConfigurations: {
       '/tsconfig.json': configurations.tsconfig,
+      '/.dojorc': configurations.dojorc,
     },
   }
 );

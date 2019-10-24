@@ -6,6 +6,7 @@ import nowConfig from './now';
 import netlifyConfig from './netlify';
 import angularCli from './angular-cli';
 import angularJSON from './angular-json';
+import dojorc from './dojorc';
 import tsconfig from './tsconfig';
 import jsconfig from './jsconfig';
 import babelTranspiler from './babel-transpiler';
@@ -24,6 +25,7 @@ const configs = {
   nowConfig,
   netlifyConfig,
   jsconfig,
+  dojorc,
 };
 
 export default configs;
